@@ -1,0 +1,255 @@
+#+TITLE: Exercises
+#+LANGUAGE: en
+#+OPTIONS: H:4 num:nil toc:nil \n:nil @:t ::t |:t ^:t *:t TeX:t LaTeX:t d:(not "HINT")
+#+OPTIONS: html-postamble:nil
+#+STARTUP: showeverything entitiespretty
+#+SETUPFILE: ../theme-bigblow.setup
+
+** TODO WDT
+  PVP the result of evaluating the following (paying special attention to the
+  more-than-syntactic difference between the \lsquo{}starless\rsquo{} form of =let= and the
+  \lsquo{}star-suffixed\rsquo{} form):
+
+#+BEGIN_SRC emacs-lisp
+  (let ((a 1) (b 2) (c 3)) (+ a b c))
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+  (let ((a 1) (b 2) (c 3)) (+ a b c d))
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+  (let ((a 1) (b 2) (c 3)) [+ a b c d])
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+  (let ((a 1) (b 2) (c 3) (+ 4)) (+ a b c +))
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+  (makunbound 'a)
+  (let ((a 1) (b 2) (c 3) (d (+ a 4))) (+ a b c d))
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+  (let* ((a 1) (b 2) (c 3) (d (+ a 4))) (+ a b c d))
+#+END_SRC
+
+***  Your answer goes here.
+** TODO TEJ
+  A function-as-association between elements of a domain and elements of a
+  codomain, for \ldquo{}small\rdquo domains and codomains, inspired so-called \ldquo{}association
+  lists\rdquo (or alists) and the =assoc= (and associated) functions.
+
+  =(assoc KEY LIST)= returns non-nil if KEY is \ldquo{}equal\rdquo to the first element of
+  an element of LIST. The value is actually the first element of LIST whose
+  first element equals KEY.
+
+  For example, here is a function that uses an alist to look up the RGB values
+  of a given color name:
+
+#+BEGIN_SRC emacs-lisp :results silent
+  (defun lookup-rgb (color-name)
+    (rest (assoc color-name
+                 '(("red" 255 0 0) ("green" 0 255 0) ("blue" 0 0 255)))))
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp :results raw
+  (lookup-rgb "blue")
+#+END_SRC
+
+: (0 0 255)
+
+  What if the color name is not in the alist?
+
+#+BEGIN_SRC emacs-lisp :results raw
+  (lookup-rgb "grue")
+#+END_SRC
+
+: nil
+
+  There are several variations of =assoc=. Find and give examples of using them.
+
+*** Your answer goes here.
+** TODO WFK
+  In the function-as-map context, here is another interpretation:
+
+  A \ldquo{}map\rdquo type (AKA associative array, AKA hashtable) is found in many
+  languages. For example, C++:
+#+BEGIN_SRC C++ :results output
+  #include <iostream>
+  #include <map>
+  using namespace std;
+
+  int main() {
+     map<string, string> mymap;
+
+     mymap["one"] = "red";
+     mymap["two"] = "blue";
+     mymap["three"] = "green";
+
+     for (auto const &ent1 : mymap) {
+        cout << ent1.first << " : " << ent1.second << endl;
+     }
+  }
+#+END_SRC
+
+: one : red
+: three : green
+: two : blue
+
+  And python:
+#+BEGIN_SRC python :results output
+  mymap = {}
+
+  mymap["one"] = "red"
+  mymap["two"] = "blue"
+  mymap["three"] = "green"
+
+  if __name__ == "__main__":
+          for key in mymap.keys():
+                  print key + " : " + str(mymap[key])
+#+END_SRC
+
+: three : green
+: two : blue
+: one : red
+
+  And of course elisp:
+#+BEGIN_SRC emacs-lisp :results output
+  (let* ((mymap (make-hash-table :test 'equal)))
+    (puthash "one" "red" mymap)
+    (puthash "two" "blue" mymap)
+    (puthash "three" "green" mymap)
+    (pp (list (gethash "one" mymap)
+              (gethash "two" mymap)
+              (gethash "three" mymap)))
+    (maphash (lambda (key value) (princ (format "%s : %s\n" key value))) mymap))
+#+END_SRC
+
+: ("red" "blue" "green")
+: one : red
+: two : blue
+: three : green
+
+  What happens if you omit the =:test 'equal= parameters to the
+  =make-hash-table= call?
+  
+*** Your answer goes here.
+** TODO TER
+  This exercise explores /looping/ versus /mapping/.
+
+  What does the =morphify= function defined below do? Think about it, then PVP
+  the result of the call to it that follows.
+
+#+BEGIN_SRC emacs-lisp :results silent
+  (defun morphify (fun lst)
+    (loop for item in lst
+          collect (funcall fun item)))
+#+END_SRC
+
+  Note the quotes:
+
+#+BEGIN_SRC emacs-lisp :results raw
+  (morphify (quote downcase) (quote ("THIS" "IS" "TOO" "LOUD")))
+#+END_SRC
+
+  The =morphify= function is essentially a /mapping/ function, which means it
+  takes a passed-in function (=fun=) and a passed-in list (=lst=), and /maps fun
+  over lst/, i.e., the results of calling the function =fun= on each element of
+  the list =lst= are collected into a new list, which is returned.
+
+  This shows one way (iteratively) a /map/ function could be implemented.
+  Another way is /recursively/, as in:
+
+#+BEGIN_SRC emacs-lisp :results silent
+  (defun morphifyr (fun lst)
+    (if (null lst)
+        nil
+      (append (list (funcall fun (first lst))) (morphifyr fun (rest lst)))))
+#+END_SRC
+
+  Explain how this version of =morphify= works.
+  
+*** Your answer goes here.
+** TODO TGE
+  Note the difference if -13 is used instead of 13 below:
+#+BEGIN_SRC emacs-lisp :results silent
+  (defun compute-floor-the-hard-way (dividend divisor)
+    (- (/ dividend (float divisor)) (/ (mod dividend divisor) (float divisor))))
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp :results raw
+  (let* ((number (/ 13 4.0))
+         (floor1 (floor number))
+         (floor2 (compute-floor-the-hard-way 13 4.0)))
+    (list number floor1 floor2))
+#+END_SRC
+
+: (3.25 3 3.0)
+
+  Is the hard way correct?
+  
+*** Your answer goes here.
+** TODO THP
+  Graph the floor and ceiling functions f(x) = \lfloor{}x\rfloor and f(x) = \lceil{}x\rceil for real
+  number values of x in the interval [-5.0 .. 5.0].
+  
+*** Your answer goes here.
+** TODO WKM
+  Which of these statements about floor and ceiling are correct, for any real
+  number $x$ and any integers $n$ and $m$?
+  1. $x - 1 < \lfloor{}x\rfloor \le x \le \lceil{}x\rceil < x + 1$.
+  2. $\lfloor{}-x\rfloor = -\lceil{}x\rceil$.
+  3. $\lceil{}-x\rceil = -\lfloor{}x\rfloor$.
+  4. $\lfloor{}x + n\rfloor = \lfloor{}x\rfloor + n$.
+  5. $\lceil{}x + n\rceil = \lceil{}x\rceil + n$.
+  6. $\lfloor{}\frac{n}{2}\rfloor + \lceil{}\frac{n}{2}\rceil = n$.
+  7. $\lfloor{}\frac{n}{2}\rfloor + \lfloor{}\frac{n + 1}{2}\rfloor = n$.
+  8. $\lceil{}\frac{n}{2}\rceil + \lceil{}\frac{n + 1}{2}\rceil = n$.
+  9. $\lfloor{}\frac{n + m}{2}\rfloor + \lceil{}\frac{n - m + 1}{2}\rceil = n$ (for any $m$, not just $m =
+     0$ as in statement 7).
+  10. $\lceil{}\frac{n + m}{2}\rceil + \lceil{}\frac{n - m + 1}{2}\rceil = n$ (for any $m$, not just $m =
+      0$ as in statement 8).
+  
+*** Your answer goes here.
+** TODO TIW
+
+  Define the function \ldquo{}round to nearest integer\rdquo using the floor and ceiling
+  functions, together with the \ldquo{}Iverson bracket\rdquo function. (A number whose
+  fractional part is less than one-half should be rounded down, otherwise up.)
+
+***  Your answer goes here.
+** TODO TKG
+  Explore the inverse of =assoc= via the functions =rassoc= and associates.
+
+***  Your answer goes here.
+** TODO WOV
+  Identify the formula or rule that generates the terms of each sequence:
+  1. =[7 14 21 28 35 42 49 56 63 70 ...]=
+  2. =[7 11 15 19 23 27 31 35 39 43 ...]=
+  3. =[3 4 6 9 13 18 24 31 39 48 ...]=
+  4. =[1 10 11 100 101 110 111 1000 1001 1010 ...]=
+  5. =[1 1 2 3 5 8 13 21 34 55 ...]=
+  6. =[7 22 11 34 17 52 26 13 40 20 ...]=
+  7. =[2 1 3 4 7 11 18 29 47 76 ...]=
+  8. =[6 12 24 48 96 192 384 768 1536 3072 ...]=
+  9. =[6 18 54 162 486 1458 4374 13122 39366 118098 ...]=
+  10. =[2 3 5 7 11 13 17 19 23 29 ...]=
+
+***  Your answer goes here.
+** TODO WQW
+  Classify the following lisp functions according as each is or is not a predicate:
+  | Predicate? | Yes or No? |
+  |------------+------------|
+  | =list=     |            |
+  | =listp=    |            |
+  | =integerp= |            |
+  | =vector=   |            |
+  | =vectorp=  |            |
+  | =symbolp=  |            |
+  | =zerop=    |            |
+  | =evenp=    |            |
+  | =oddp=     |            |
+
+***  Your answer goes here. (Replicate the above table.)
