@@ -1,0 +1,39 @@
+#+TITLE: Puzzles
+#+LANGUAGE: en
+#+OPTIONS: H:4 num:nil toc:nil \n:nil @:t ::t |:t ^:t *:t TeX:t LaTeX:t
+#+OPTIONS: html-postamble:nil
+#+STARTUP: showeverything entitiespretty
+
+No help from me! Or brother Neff! Or any professor!
+Other rando's ... sure.  Other students ... even bettar!
+
+To get full "extra credit" you must fill out all four. 
+Solutions and proofs are different.  Solving a puzzle like the bomb puzzle in a previous lab
+is much different than proving it is impossible if we don't know if the bomb is heavier or lighter
+with only 2 weights!
+
+* Puzzles
+** TODO TEU
+  How many numbers between one and a million contain the digit 1 exactly once,
+  and the sum of the rest of the digits is 16? Write elisp code with and without
+  loops to verify your answer.
+*** Rephrase
+*** Approach
+*** Solution
+*** Proof
+** TODO TME
+  Sequences can be non-numeric as well. What is the pattern for this sequence?
+: [m b w y me be wi yo met bew ith you meta bewi thyo uati metap bewit hyoua tirel]
+  How long can it continue?
+*** Rephrase
+*** Approach
+*** Solution
+*** Proof
+
+** TODO WRA
+  Why is the sum of the reciprocals of the powers of two scaled by which power
+  equal to two?
+*** Rephrase
+*** Approach
+*** Solution
+*** Proof
