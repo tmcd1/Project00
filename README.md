@@ -6,6 +6,8 @@ Due Monday: 6pm, email me your public GitHub repo and include all the names of t
 This assignment is one of few that constitutes a significant portion of your grade so do well!
 I will be extremely meticulous in my grading. And there will be no curve. AND NO LAB this week.
 
+INCLUDE A README FILE WITH ALL TEAM MEMBER NAMES and summaries and opinnions on the project!
+
 25%
 KEY TERMS
 Identify Key terms
