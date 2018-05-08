@@ -1,0 +1,65 @@
+#+TITLE: Project00 Key_Terms
+#+LANGUAGE: en
+#+OPTIONS: H:4 num:nil toc:nil \n:nil @:t ::t |:t ^:t *:t TeX:t LaTeX:t
+#+OPTIONS: html-postamble:nil
+#+STARTUP: showeverything entitiespretty
+
+NOTE: Be sure, when you are searching that they are logical defintions, that is
+they are definitions that relate to math and Logic.
+
+Example
+* Dragons
+** identify
+blah
+** Define
+blah blah
+** Example/Explanation
+blah blah
+** Non-Trivial Test question
+blah blah
+
+Contrapositive
+Converse
+inverse
+R: real numbers
+Z: integers
+Q: rational numbers
+predicate
+Domain
+CoDomain
+quantifier
+antecedent
+consequent
+Set
+Fallacy
+biconditional
+sufficient condition
+necessary condition
+~p
+p ^ q
+p V q
+P XOR q
+p == q
+p -> q
+P <--> q
+Three dots in a triangle
+upside down A
+Backwards E
+union
+intersection
+Commutative laws
+associative laws
+distributive laws
+identy laws
+negation laws
+double negative law
+idempotent laws
+universal bound laws
+De morgan's laws
+absoption laws
+negations of t and c
+vacuously true
+Modus Ponens
+Modus Tollens
+Elimination: valid argument form
+Transitivity: Valid Argument form
