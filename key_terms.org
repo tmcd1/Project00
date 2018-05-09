@@ -77,7 +77,7 @@ p ^ q
 
 p V q
 
-P XOR q
+p XOR q
 
 p == q
 
@@ -101,7 +101,7 @@ associative laws
 
 distributive laws
 
-identy laws
+identity laws
 
 negation laws
 
@@ -113,7 +113,7 @@ universal bound laws
 
 De morgan's laws
 
-absoption laws
+absorption laws
 
 negations of t and c
 
