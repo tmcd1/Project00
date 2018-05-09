@@ -83,7 +83,7 @@ p == q
 
 p -> q
 
-P <--> q
+p <--> q
 
 Three dots in a triangle
 
