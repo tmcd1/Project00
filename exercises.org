@@ -5,7 +5,12 @@
 #+STARTUP: showeverything entitiespretty
 #+SETUPFILE: ../theme-bigblow.setup
 
-** TODO WDT
+** DONE WDT
+   CLOSED: [2018-05-14 Mon 15:54]
+   :LOGBOOK:
+   CLOCK: [2018-05-14 Mon 15:44]--[2018-05-14 Mon 15:54] =>  0:10
+   :END:
+#+begin_note
   PVP the result of evaluating the following (paying special attention to the
   more-than-syntactic difference between the \lsquo{}starless\rsquo{} form of =let= and the
   \lsquo{}star-suffixed\rsquo{} form):
@@ -13,6 +18,9 @@
 #+BEGIN_SRC emacs-lisp
   (let ((a 1) (b 2) (c 3)) (+ a b c))
 #+END_SRC
+
+#+RESULTS:
+: 6
 
 #+BEGIN_SRC emacs-lisp
   (let ((a 1) (b 2) (c 3)) (+ a b c d))
@@ -22,9 +30,15 @@
   (let ((a 1) (b 2) (c 3)) [+ a b c d])
 #+END_SRC
 
+#+RESULTS:
+: [+ a b c d]
+
 #+BEGIN_SRC emacs-lisp
   (let ((a 1) (b 2) (c 3) (+ 4)) (+ a b c +))
 #+END_SRC
+
+#+RESULTS:
+: 10
 
 #+BEGIN_SRC emacs-lisp
   (makunbound 'a)
@@ -35,8 +49,32 @@
   (let* ((a 1) (b 2) (c 3) (d (+ a 4))) (+ a b c d))
 #+END_SRC
 
-***  Your answer goes here.
+#+RESULTS:
+: 11
+
+#+end_note
+#+begin_info
+  1. It seems that the =let= function assigns multiple variables at the same time, then lets us perform an operation
+     using the assigned variables without modifying the variable values.
+  2. I think that it will return an invalid number, because d isn't defined.
+     After running the second block, my hypothesis was correct. It wouldn't run the block because the symbol value for d was void.
+  3. I think that the same thing will happen as in example 2, but it might be different because we are performing the operation
+     on a vector, and not a list.
+     I guess because we used the square brackets, the regular expression [+ a b c d] is returned. (I learned that the [] in elisp is a
+     'character alternative' after I googled it.
+  4. I think that the symbol '+' will be run as a 4 at the end of the list, but will be interpreted correctly when at the front of the list.
+     I was right! Taht dsoen't hpaepn vrey otefn.
+  5. I guess the =makeunbound= function makes 'a' mutable, so the last input to =let= should be equated to 5, which means the the entire
+     function will return 11.
+     I don't really know what happened, but I think that the =makeunbound= function voided the symbol 'a'.
+  6. Does the * return a pointer to the value??
+     After some research, I found the =let*= evaluates each expression one-at-a-time, creating a location for each. This means that 'd' can be
+     evaluated just fine, and the rest of the expression can be valid.
+#+end_info
 ** TODO TEJ
+   :LOGBOOK:
+   CLOCK: [2018-05-14 Mon 16:09]
+   :END:
   A function-as-association between elements of a domain and elements of a
   codomain, for \ldquo{}small\rdquo domains and codomains, inspired so-called \ldquo{}association
   lists\rdquo (or alists) and the =assoc= (and associated) functions.
@@ -71,6 +109,18 @@
   There are several variations of =assoc=. Find and give examples of using them.
 
 *** Your answer goes here.
+    =(rassoc VALUE LIST)= returns non-nill if VALUE matches the value of an element in LIST
+    #+BEGIN_SRC emacs-lisp :results silent
+  (defun find-values (value)
+    (rest (rassoc value '((a . 3) (b . 4) (c . 5)))))
+    #+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+  (find-values (4))
+#+END_SRC
+
+#+RESULTS:
+
 ** TODO WFK
   In the function-as-map context, here is another interpretation:
 
@@ -134,7 +184,7 @@
 
   What happens if you omit the =:test 'equal= parameters to the
   =make-hash-table= call?
-  
+
 *** Your answer goes here.
 ** TODO TER
   This exercise explores /looping/ versus /mapping/.
@@ -170,7 +220,7 @@
 #+END_SRC
 
   Explain how this version of =morphify= works.
-  
+
 *** Your answer goes here.
 ** TODO TGE
   Note the difference if -13 is used instead of 13 below:
@@ -189,12 +239,12 @@
 : (3.25 3 3.0)
 
   Is the hard way correct?
-  
+
 *** Your answer goes here.
 ** TODO THP
   Graph the floor and ceiling functions f(x) = \lfloor{}x\rfloor and f(x) = \lceil{}x\rceil for real
   number values of x in the interval [-5.0 .. 5.0].
-  
+
 *** Your answer goes here.
 ** TODO WKM
   Which of these statements about floor and ceiling are correct, for any real
@@ -211,7 +261,7 @@
      0$ as in statement 7).
   10. $\lceil{}\frac{n + m}{2}\rceil + \lceil{}\frac{n - m + 1}{2}\rceil = n$ (for any $m$, not just $m =
       0$ as in statement 8).
-  
+
 *** Your answer goes here.
 ** TODO TIW
 
@@ -238,7 +288,12 @@
   10. =[2 3 5 7 11 13 17 19 23 29 ...]=
 
 ***  Your answer goes here.
-** TODO WQW
+** DONE WQW
+   CLOSED: [2018-05-11 Fri 12:32]
+   :LOGBOOK:
+   CLOCK: [2018-05-11 Fri 12:31]--[2018-05-11 Fri 12:31] =>  0:00
+   :END:
+#+begin_note
   Classify the following lisp functions according as each is or is not a predicate:
   | Predicate? | Yes or No? |
   |------------+------------|
@@ -251,5 +306,19 @@
   | =zerop=    |            |
   | =evenp=    |            |
   | =oddp=     |            |
+#+end_note
+#+begin_info
+ | Predicate? | Yes or No? |
+ |------------+------------|
+ | =list=     | No         |
+ | =listp=    | Yes        |
+ | =integerp= | Yes        |
+ | =vector=   | No         |
+ | =vectorp=  | Yes        |
+ | =symbolp=  | Yes        |
+ | =zerop=    | Yes        |
+ | =evenp=    | Yes        |
+ | =oddp=     | Yes        |
 
-***  Your answer goes here. (Replicate the above table.)
+Sorry about the clock. I was on a different exercise and 'undid' too many things.
+#+end_info
