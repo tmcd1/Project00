@@ -36,93 +36,177 @@ c. He levitates, he's an alien "HEELLLLLOOOO!"
 
 
 d. Why do I care about Superman again, he's in the D.C. universe ... so dark and terrible movies!
+* Contrapositive
+  - Identify :: There are different ways to modify conditional statements, and the contrapositive is useful
+                in determining the validity of a statement. If the contrapositive is true, so is the original statement.
+  - Define :: To get the contrapositive, switch the order of the hypothesis and the conclusion, and negate both.
+  - Example :: Original: The sky is blue, so the grass is green.
+               Contrapositive: The grass is not green, so the sky is not blue.
+  - Test Question :: 
+      Which of these options is the contrapositive of the statement, "If I eat less, I will lose weight?"
+        a. If I eat less, I will not lose weight.
+        b. If I do not eat less, I will lose weight.
+        c. I will not lose weight if I do not eat less.
+        d. Rainbows are happy, and no one needs to worry about weight.
 
-Contrapositive
+* Converse
+  - Identify :: Like the contrapositive, the converse is another way of modifying a conditional statement.
+                If the converse is true, the original statement is false.
+  - Define :: To get the converse, simply switch the hypothesis and the conclusion of a conditional statement.
+  - Example :: Original: I have five fingers, so you have three toes.
+               Converse: You have three toes, so I have five fingers.
+  - Test Question ::
+      Given that "I am hungry, so I will eat" is the converse of a conditional statment, which of the 
+      following is the original statement?
+        a. I am not hungry, so I will not eat.
+        b. I will not eat, so I am not hungry.
+        c. I will eat, so I am hungry.
+        d. I am not hungry, so I will eat.
 
-Converse
+* Inverse
+  - Identify :: The inverse gives yet another way to modify a conditional statement. If the inverse is true, the original
+                statement is false.
+  - Define :: To get the inverse, negate both the hypothesis and conclusion of the original statement.
+  - Example :: Original: I have a phone, so I can talk.
+               Inverse: I don't have a phone, so I can't talk.
+  - Test Question ::
+      The inverse of "I have scriptures, so I am spiritual" is 
+        a. I am not spiritual, so I don't have scriptures.
+        b. I am spiritual, so I have scriptures.
+        c. I don't have scriptures, so I am not spiritual.
+        d. I do not have scriptures, so I am spiritual.
 
-inverse
+* R: real numbers
+  - Identify :: There many sets in the world of math. One group of numbers is known as real numbers.
+  - Define :: The set of real numbers is all numbers on the number line, including positive and negative integer and 
+              rational numbers. This set is denoted by the symbol \real. (Sometimes the R will have two vertical bars).
+  - Example :: \real {-1, 0, 2.33, 4/5} is a valid statement, but \real {1, 2, 3, 4i} is not.
+  - Test Question ::
+      Which of these is not included the the set of all real numbers?
+        a. 2
+        b. 7.543
+        c. -7i
+        d. -456/6758
 
-R: real numbers
+* Z: integers
+  - Identify :: Another set of numbers is the Integer set. Think of the integers as the counting numbers.
+  - Define :: The set of integers is defined as all positive and negative whole numbers (no fractions!) and 0.
+              This set is often denoted by a capital J or a capital Z with two diagonal bars.
+  - Example :: J{1, 2, 4, -5, 0} is a valid statement. J{5.4} is not.
+  - Test Question ::
+      Which of these sets includes an element that is not an integer?
+        a. {1, 2, 3, 4}
+        b. {-3, -2, -1, 0}
+        c. {-3.1, -2, -1, 0}
+        d. {0, 0, 0, 0}
+        
+* Q: rational numbers
+  - Identify :: The set of rational numbers is similar to the set of integers, but also includes 
+                positive and negative fractions.
+  - Define :: Mathematically, according to www.mathwords.com, rational numbers are the set of all
+              real numbers that can be written as a ration of integers with a nonzero denominator.
+              This means that values like 1/3 is a rational number, but the numerical symbol 'e' is not.
+              The set of rational values is defined by a capital Q.
+  - Example :: Q{1/3, .25, -1, 0} is a valid set, but Q{\pi, e, and 1.347583623729} is not.
+  - Test Question ::
+      Which of these values is not a rational number?
+        a. .125
+        b. .25
+        c. -1.4576
+        d. 0
+* Predicate
+  - Identify :: In the world of logic, there are a lot of terms that need to be defined. Predicate is definitely one of those 
+                terms.
+  - Define :: A predicate is a statement that could be true or false depending on the value of its variables. (goo.gl/m19ERj)
+  - Example :: According to this definition, (x + y = 3) could be thought of as a predicate.
+  - Test Question ::
+      What are the possible return values of a predicate?
+        a. Before/After
+        b. This/That
+        c. True/False
+        d. If/Else
+ 
+* Domain
 
-Z: integers
+  
+* CoDomain
 
-Q: rational numbers
+  
+* Quantifier
 
-predicate
+  
+* Antecedent
 
-Domain
+  
+* Consequent
 
-CoDomain
+  
+* Set
 
-quantifier
+  
+* Fallacy
 
-antecedent
+  
+* Biconditional
 
-consequent
+  
+* Sufficient condition
 
-Set
+  
+* Necessary condition
 
-Fallacy
+  ~p
 
-biconditional
+  p ^ q
 
-sufficient condition
+  p V q
 
-necessary condition
+  p XOR q
 
-~p
+  p == q
 
-p ^ q
+  p -> q
 
-p V q
+  p <--> q
 
-p XOR q
+  Three dots in a triangle
 
-p == q
+  upside down A
 
-p -> q
+  Backwards E
 
-p <--> q
+  union
 
-Three dots in a triangle
+  intersection
 
-upside down A
+  Commutative laws
 
-Backwards E
+  associative laws
 
-union
+  distributive laws
 
-intersection
+  identity laws
 
-Commutative laws
+  negation laws
 
-associative laws
+  double negative law
 
-distributive laws
+  idempotent laws
 
-identity laws
+  universal bound laws
 
-negation laws
+  De morgan's laws
 
-double negative law
+  absorption laws
 
-idempotent laws
+  negations of t and c
 
-universal bound laws
+  vacuously true
 
-De morgan's laws
+  Modus Ponens
 
-absorption laws
+  Modus Tollens
 
-negations of t and c
+  Elimination: valid argument form
 
-vacuously true
-
-Modus Ponens
-
-Modus Tollens
-
-Elimination: valid argument form
-
-Transitivity: Valid Argument form
+  Transitivity: Valid Argument form
