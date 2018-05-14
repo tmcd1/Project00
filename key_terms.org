@@ -127,7 +127,17 @@ d. Why do I care about Superman again, he's in the D.C. universe ... so dark and
         d. If/Else
  
 * Domain
-
+  - Identify :: It helps to know where in the realm of number space we are. This is where domain comes in.
+  - Define :: According to mathwords.com, the domain is the set of values of the independent variable for which a
+              function is defined.
+  - Example :: In the function y=x, the domain is the set of all real numbers. In the function y = x*x, the domain is the 
+               set of all positive real numbers.
+  - Test Question ::
+      Which of these numbers is outside the domain of y = x*x?
+        a. 1
+        b. 0
+        c. -1
+        d. 2
   
 * CoDomain
 
