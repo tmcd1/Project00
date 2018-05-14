@@ -84,3 +84,11 @@
 
    A problem is a problem because we needed more information. When you
    balance your problem, you get more information.
+
+** The Intreptation Thereof...
+   I may not understand the connection of these things completely, but here is my attempt at making one.
+   In this class, we will be handed exercises and problems. It seems to me that through the reading, we 
+   should be able to answer the exercises fairly easy. The problems will take somewhere on the hour level,
+   but maybe a day level if they are particularly challenging. We're supposed to be lost, because you want 
+   us to become problem solvers on the lifetime level. Everything we do in this class has a purpose, and as 
+   long as we balance tactics and strategies, we should be able to hone our craft as problem solvers.
