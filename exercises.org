@@ -71,9 +71,11 @@
      After some research, I found the =let*= evaluates each expression one-at-a-time, creating a location for each. This means that 'd' can be
      evaluated just fine, and the rest of the expression can be valid.
 #+end_info
-** TODO TEJ
+** DONE TEJ
+   CLOSED: [2018-05-14 Mon 17:50]
    :LOGBOOK:
-   CLOCK: [2018-05-14 Mon 16:09]
+   CLOCK: [2018-05-14 Mon 17:49]--[2018-05-14 Mon 17:49] =>  0:00
+   CLOCK: [2018-05-14 Mon 16:09]--[2018-05-14 Mon 16:41] =>  0:32
    :END:
   A function-as-association between elements of a domain and elements of a
   codomain, for \ldquo{}small\rdquo domains and codomains, inspired so-called \ldquo{}association
