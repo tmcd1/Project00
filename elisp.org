@@ -8,11 +8,44 @@ NOTE: Comment your code, and verify it works for "breaking cases" i.e. 0! = 1.
 
 * Factorial Code
 ** Code
-#+BEGIN_SRC emacs-lisp
-(+ 2 3 4)
+#+BEGIN_SRC emacs-lisp :results silent
+(defun factorial (n)
+  "I got this code from progopedia.com/example/factorial/22/, but I'll add comments to prove 
+   I know what's going on.
+   If statement template: if (expression) (do-if-true) (do-if-false)
+   return 1 if n == 0
+   multiply n by the return value of factorial(n-1)"
+  (if (= n 0)
+    1
+    (* n (factorial (- n 1))))) 
 #+END_SRC
+
 ** Test cases
+#+BEGIN_SRC emacs-lisp
+(factorial 0)
+#+END_SRC
+
+#+RESULTS:
+: 1
+
+#+BEGIN_SRC emacs-lisp 
+(factorial 1)
+#+END_SRC
+
+#+RESULTS:
+: 1
+
+#+BEGIN_SRC emacs-lisp
+(factorial 10)
+#+END_SRC
+
+#+RESULTS:
+: 3628800
+
 ** How big a number will make your computer freeze?
+#+BEGIN_SRC emacs-lisp
+(factorial 9999)
+#+END_SRC
 * "Real-World" function with mapcar
 ** What is mapcar
 ** Code
